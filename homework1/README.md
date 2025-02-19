@@ -17,7 +17,9 @@ Various considerations for specific tasks
 
 The original code here was just `return price - (price * discount / 100)`, however because division in python will always return a float data type, it was modified to only do *integer division specifically `//`* when **both** inputs are int. Otherwise operate standard
 
-### Task 6: Word count
+### Task 6: Word Count
+
+> :warning: NOTE: Originally ignored the lorem ipsum requirement for the text file. Fixed it but just included the alice text as a separate file.
 
 Text for this output was taken and validated via:
 

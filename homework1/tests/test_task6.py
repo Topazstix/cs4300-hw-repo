@@ -37,7 +37,12 @@ def register_pytest_decorator(filename: str, expected_count:int) -> callable:
     
     return decorator
 
-@register_pytest_decorator("tasks/task6_read_me.txt", 26543)
+## Lorem ipsum test case
+@register_pytest_decorator("tasks/task6_read_me.txt", 127)
 def count_words_pytest_wrapper(filename: str) -> int:
     return count_words(filename)
 
+## Test case for alice in wonderland chapter/book
+@register_pytest_decorator("tasks/task6_alice.txt", 26543)
+def count_words_pytest_wrapper(filename: str) -> int:
+    return count_words(filename)
