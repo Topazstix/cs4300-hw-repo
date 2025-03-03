@@ -1,3 +1,10 @@
+## Local ignores for env
+local/
+.cache
+.config
+.local
+*venv*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
