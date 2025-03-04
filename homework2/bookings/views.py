@@ -29,9 +29,8 @@ def index(request: HttpResponse) -> HttpResponse:
 #     return redirect('index')
 
 def movie_list(request: HttpResponse) -> HttpResponse:
-    ## Not fully sure whether this is correctly working or not..
-    response = requests.get('http://127.0.0.1:8081/api/movies/')
-    movies = response.json()
+    ## It wasnt im a dodo. fixed by grabbing context instead for Movie object
+    movies = Movie.objects.all()
     return render(request, 'bookings/movie_list.html', {'movies': movies})
 
 def book_seat(request: HttpResponse, movie_id: int) -> HttpResponse:
