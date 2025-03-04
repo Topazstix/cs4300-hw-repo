@@ -15,7 +15,11 @@ class Movie(models.Model):
     
 class Seat(models.Model):
     seat_number = models.IntegerField(help_text="The given seat number in the theater")
-    booking_status = models.CharField(max_length=100, help_text="Whether a seat is currently booked or available")
+    booking_status = models.CharField(
+                max_length=100, 
+                help_text="Whether a seat is currently booked or available", 
+                choices=[('booked', 'Booked'), ('available', 'Available')]
+            )
     seat_price = models.FloatField(help_text="Price of the seat")
 
     def __str__(self) -> str:
@@ -29,4 +33,6 @@ class Booking(models.Model):
     show_time = models.TimeField()
 
     def __str__(self) -> str:
-        return self.customer_name
+        ## I believe this will have to be updated to return more specific data
+        ### for instance, the user, their booking + seat number, etc?
+        return self.user

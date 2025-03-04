@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+# from bookings.views import index, movie_list, book_seat, confirm_booking, booking_history
 from bookings.views import *
 
 ## Instantiate the rest_framework router
@@ -29,7 +30,19 @@ router.register(r'bookings', BookingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index),
     ## Initialize standard `api/*` endpoints
     ### Example: `api/movies/` for the default movies endpoint
+    ### Example: `api/movies/` for the default movies endpoint
     path('api/', include(router.urls)),
+
+    ## Base endpoints
+    path('movies/', movie_list, name='movies'),
+    path('seats/', seat_booking, name='seats'),
+    path('bookings/', booking_history, name='bookings'),
+
+    ## CRUD Ops endpoints
+    path('book_seat/<int:movie_id>/', book_seat, name='book_seat'),
+    path('confirm_booking/<int:movie_id>/<int:seat_id>/', confirm_booking, name='confirm_booking'),
+    path('booking_history/', booking_history, name='booking_history'),
 ]
