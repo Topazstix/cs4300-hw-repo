@@ -28,8 +28,14 @@ DEBUG = True
 ## Will eventually get used in remote domain resolution
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    'walrus-app-test-app-36ygb.ondigitalocean.app',
+    'cs4300bookingapp.ddns.net',
 ]
 
+## Allow trusted origin for CSRF tokens
+CSRF_TRUSTED_ORIGINS = [
+    'https://walrus-app-test-app-36ygb.ondigitalocean.app/'
+]
 
 # Application definition
 
