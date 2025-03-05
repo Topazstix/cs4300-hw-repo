@@ -33,7 +33,6 @@ urlpatterns = [
     path('', index),
     ## Initialize standard `api/*` endpoints
     ### Example: `api/movies/` for the default movies endpoint
-    ### Example: `api/movies/` for the default movies endpoint
     path('api/', include(router.urls)),
 
     ## Base endpoints
@@ -42,6 +41,7 @@ urlpatterns = [
     path('bookings/', booking_history, name='bookings'),
 
     ## CRUD Ops endpoints
+    ### NOTE: Not exactly operational, template paths currently for UI
     path('book_seat/<int:movie_id>/', book_seat, name='book_seat'),
     path('confirm_booking/<int:movie_id>/<int:seat_id>/', confirm_booking, name='confirm_booking'),
     path('booking_history/', booking_history, name='booking_history'),

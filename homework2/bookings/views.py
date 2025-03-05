@@ -11,11 +11,11 @@ from .serializers import *
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    
+
 class SeatViewSet(viewsets.ModelViewSet):
     queryset = Seat.objects.all()
     serializer_class = SeatSerializer
-    
+
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
@@ -45,7 +45,7 @@ def confirm_booking(request: HttpResponse, movie_id: int, seat_id: int) -> HttpR
     ## Handle post requests for booking ops
     ### NOTE: REQUIRES user auth, which is currently not configured.
     if request.method == 'POST':
-        Booking.objects.create(movie=movie, seat=seat, user=request.user, show_time='19:00')
+        Booking.objects.create(movie=movie, seat=seat, user=request.user)
         seat.booking_status = 'booked'
         seat.save()
         return redirect('booking_history')
