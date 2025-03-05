@@ -1,0 +1,18 @@
+{% extends 'bookings/base.html' %}
+{% block title %}Book Seat{% endblock %}
+{% block content %}
+<h2 class="my-4">Book a Seat for {{ movie.title }}</h2>
+<div class="row">
+    {% for seat in seats %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Seat Number: {{ seat.seat_number }}</p>
+                    <p class="card-text">Price: ${{ seat.seat_price }}</p>
+                    <a href="{% url 'confirm_booking' movie.id seat.id %}" class="btn btn-primary">Book Now!</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
